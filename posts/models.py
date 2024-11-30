@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-TOPIC = ((0, "advice", 1, "diet", 2, "form",3,"training schedules", 5, " "))
+TOPIC = ((0, "advice"),( 1, "diet"),( 2, "form"),(3,"training schedules"),( 4, " "))
 
 # Create your models here.
 class Post(models.Model):
@@ -13,4 +13,4 @@ class Post(models.Model):
     )
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    topic = models.IntegerField(choices=TOPIC, default = 5)
+    topic = models.IntegerField(choices=TOPIC, default = 4)
