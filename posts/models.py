@@ -13,4 +13,4 @@ class Post(models.Model):
     )
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    topic = models.IntegerField(choises=TOPIC, default = 5)
+    topic = models.IntegerField(choices=TOPIC, default = 5)
