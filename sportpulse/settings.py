@@ -104,7 +104,9 @@ DATABASES = {
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
-    "https://*.herokuapp.com"
+    "https://*.herokuapp.com",
+    "https://8000-rasm1-sportpulse-93blk26t82y.ws-eu117.gitpod.io"
+    
 ]
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
