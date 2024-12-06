@@ -24,10 +24,14 @@ def post_detail(request, slug):
 
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
+    comments = post.comments.all().order_by("-created_on")
 
     return render(
         request,
         "posts/post_detail.html",
-        {"post": post},
+        {"post": post,
+        "comments": comments,
+        
+        }
     )
 
