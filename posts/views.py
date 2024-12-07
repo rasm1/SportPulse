@@ -40,7 +40,11 @@ def post_detail(request, slug):
         request, messages.SUCCESS,
         'Comment submitted succesfully!'
     )
-
+    else:
+        messages.add_message(
+            request, messages.ERROR,
+            'comment was not submitted'
+        )
 
     
 
