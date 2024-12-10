@@ -1,15 +1,43 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.all().order_by("-created_on")
     template_name = "posts/index.html"
     paginate_by = 6
+
+def create_post(request):
+    """"
+     View to create a post 
+    
+    """
+
+
+    if request.method == "POST":
+        form = PostForm(data = request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('post_list')
+            messages.add_message(
+            request, messages.SUCCESS,
+            'Post submitted succesfully!'
+    )
+
+    else:
+        form = PostForm()
+        messages.add_message(
+            request, messages.ERROR,
+            'post was not submitted'
+        )
+    return render(request, 'posts/create_post.html', {'form': form})
+
 
 def post_detail(request, slug):
     """
