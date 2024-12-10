@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% url 'posts_edit_post' as editpost_url %}
 
 <div class="masthead">
     <div class="container">
@@ -28,7 +29,14 @@
                     {{ post.content | safe }}
                 </p>
             </div>
+            {% if user.is_authenticated and post.author == user %}
+          <button class="btn btn-delete-post"
+            post_id="{{ post.id }}">Delete</button>
+            <a class="{% if request.path == editpost_url %}active{% endif %}"aria-current="page"
+               href="{% url 'edit_post' slug=post.slug post_id=post.id %}">edit post</a>
+          {% endif %}
         </div>
+
     </div>
     <!-- Displaying count of comments -->
   <div class="row">

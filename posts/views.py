@@ -24,7 +24,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('post_list')
+            return redirect('home')
             messages.add_message(
             request, messages.SUCCESS,
             'Post submitted succesfully!'
@@ -37,6 +37,32 @@ def create_post(request):
             'post was not submitted'
         )
     return render(request, 'posts/create_post.html', {'form': form})
+
+
+def post_edit(request, slug, post_id):
+    """
+    view to edit post
+    """
+    form = PostForm()
+    queryset = Post.objects.all()
+    post = get_object_or_404(queryset, slug=slug)
+    if request.method == "POST":
+
+        
+        form = PostForm(data = request.POST)
+
+        if  form.is_valid() and post.author == request.user:
+            post = form.save(commit=False)
+            post = post
+            post.save()
+            return redirect('home')
+            messages.add_message(request, messages.SUCCESS, 'Post Updated!')
+        else:
+            form = PostForm()
+            messages.add_message(request, messages.ERROR, 'Error updating post!')
+
+    return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
+
 
 
 def post_detail(request, slug):
