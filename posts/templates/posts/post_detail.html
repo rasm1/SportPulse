@@ -32,7 +32,7 @@
             {% if user.is_authenticated and post.author == user %}
           <button class="btn btn-delete-post"
             post_id="{{ post.id }}">Delete</button>
-            <a class="{% if request.path == editpost_url %}active{% endif %}"aria-current="page"
+            <a class=" btn btn-edit {% if request.path == editpost_url %}active{% endif %}"aria-current="page"
                href="{% url 'edit_post' slug=post.slug post_id=post.id %}">edit post</a>
           {% endif %}
         </div>
