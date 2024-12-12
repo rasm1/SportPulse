@@ -65,6 +65,26 @@ def post_edit(request, slug, post_id):
 
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
 
+def post_delete(request, slug, post_id):
+    """
+    view to delete post
+    """
+    queryset = Post.objects.all()
+    post = get_object_or_404(queryset, slug=slug, id=post_id)
+    
+
+    if post.author == request.user:
+        post.delete()
+        return redirect('home')
+        messages.add_message(request, messages.SUCCESS, 'Post deleted!')
+        
+    else:
+        return redirect("home")
+        messages.add_message(request, messages.ERROR, 'You can only delete your own Posts!')
+        
+
+    return redirect('home')
+
 
 
 def post_detail(request, slug):
