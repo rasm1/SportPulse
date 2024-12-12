@@ -1,8 +1,10 @@
 
 
-const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-const deleteButtons = document.getElementsByClassName("btn-delete");
-const deleteConfirm = document.getElementById("deleteConfirm");
+
+const deleteModalpost = new bootstrap.Modal(document.getElementById("deleteModalpost"));
+const deleteButtonsPost = document.getElementsByClassName("btn-delete-post");
+const deleteConfirmPost = document.getElementById("deleteConfirmPost");
+
 
 /**
 * Initializes deletion functionality for the provided delete buttons.
@@ -14,10 +16,10 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 * - Displays a confirmation modal (`deleteModal`) to prompt 
 * the user for confirmation before deletion.
 */
-for (let button of deleteButtons) {
+for (let button of deleteButtonsPost) {
   button.addEventListener("click", (e) => {
     let postId = e.target.getAttribute("post_id");
-    deleteConfirm.href = `delete_post/${postId}`;
-    deleteModal.show();
+    deleteConfirmPost.href = `delete_post/${postId}`;
+    deleteModalpost.show();
   });
 }
