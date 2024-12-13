@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
+
 # Create your views here.
 class PostList(generic.ListView):
     queryset = Post.objects.all().order_by("-created_on")
@@ -24,11 +25,11 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('home')
             messages.add_message(
             request, messages.SUCCESS,
             'Post submitted succesfully!'
-    )
+        )
+        #return redirect('post_detail', slug=slug) 
 
     else:
         form = PostForm()
@@ -36,6 +37,7 @@ def create_post(request):
             request, messages.ERROR,
             'post was not submitted'
         )
+        
     return render(request, 'posts/create_post.html', {'form': form})
 
 
@@ -57,13 +59,15 @@ def post_edit(request, slug, post_id):
             post = post
             post.author = request.user
             post.save()
-            return redirect('home')
             messages.add_message(request, messages.SUCCESS, 'Post Updated!')
+            return redirect('home')
+            
         else:
             return redirect('home')
             messages.add_message(request, messages.ERROR, 'Error updating post!')
 
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
+
 
 def post_delete(request, slug, post_id):
     """
@@ -108,21 +112,24 @@ def post_detail(request, slug):
     comment_form = CommentForm()
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
-    if comment_form.is_valid():
-        comment = comment_form.save(commit=False)
-        comment.author = request.user
-        comment.post = post
-        comment.save()
-        messages.add_message(
-        request, messages.SUCCESS,
-        'Comment submitted succesfully!'
-    )
-    # bugged: always displays the message 
-    else:
-        messages.add_message(
-            request, messages.ERROR,
-            'comment was not submitted'
-        )
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.save()
+            messages.add_message(
+            request, messages.SUCCESS,
+            'Comment submitted succesfully!'
+            )
+            return redirect('post_detail', slug=post.slug)
+            
+        # bugged: always displays the message 
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'comment was not submitted'
+            )
+    comment_form = CommentForm()
 
     
 
@@ -136,26 +143,38 @@ def post_detail(request, slug):
         }
     )
 
+    # does not execute, when submit is pressed in the edit comment section it treats it as a whole new comment
+print("before edit function")
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
     """
-    if request.method == "POST":
+    print(" inside edit")
 
+    if request.method == "POST":
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
+        print("recieved post request")
+
         comment_form = CommentForm(data=request.POST, instance=comment)
+        print("form created, checking validity")
 
         if comment_form.is_valid() and comment.author == request.user:
+            print("Form is valid and user is authorized")
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            print("comment saved")
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            return redirect('post_detail', slug=slug) 
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
-
+            print("form is invalid")
+    
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    
+    
 
 def comment_delete(request, slug, comment_id):
     """
