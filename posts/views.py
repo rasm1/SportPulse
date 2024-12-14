@@ -18,7 +18,6 @@ def create_post(request):
     
     """
 
-
     if request.method == "POST":
         form = PostForm(data = request.POST)
         if form.is_valid():
@@ -48,10 +47,8 @@ def post_edit(request, slug, post_id):
     form = PostForm()
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
-
     if request.method == "POST":
 
-        
         form = PostForm(data = request.POST, instance=post)
 
         if  form.is_valid() and post.author == request.user:
@@ -75,7 +72,6 @@ def post_delete(request, slug, post_id):
     """
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug, id=post_id)
-    
 
     if post.author == request.user:
         post.delete()
@@ -86,7 +82,6 @@ def post_delete(request, slug, post_id):
         return redirect("home")
         messages.add_message(request, messages.ERROR, 'You can only delete your own Posts!')
         
-
     return redirect('home')
 
 
@@ -108,8 +103,8 @@ def post_detail(request, slug):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
-
     comment_form = CommentForm()
+
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -123,8 +118,6 @@ def post_detail(request, slug):
             )
             return HttpResponseRedirect(reverse('post_detail', args=[slug]))
             
-            
-         
         else:
             messages.add_message(
                 request, messages.ERROR,
@@ -133,7 +126,6 @@ def post_detail(request, slug):
     
     else:
         comment_form = CommentForm()
-
     
     return render(
         request,
@@ -146,12 +138,12 @@ def post_detail(request, slug):
     )
     
 
-    # does not execute, when submit is pressed in the edit comment section it treats it as a whole new comment
 print("before edit function")
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
     """
+
     print(" inside edit")
 
     if request.method == "POST":
@@ -159,7 +151,6 @@ def comment_edit(request, slug, comment_id):
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
         print("recieved post request")
-
         comment_form = CommentForm(data=request.POST, instance=comment)
         print("form created, checking validity")
 
@@ -171,6 +162,7 @@ def comment_edit(request, slug, comment_id):
             print("comment saved")
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
             return redirect('post_detail', slug=slug) 
+
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
             print("form is invalid")
@@ -190,6 +182,7 @@ def comment_delete(request, slug, comment_id):
     if comment.author == request.user:
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
