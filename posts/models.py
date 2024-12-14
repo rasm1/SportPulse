@@ -1,14 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
+from multiselectfield import MultiSelectField
 
 TOPIC = ((0, "advice"),( 1, "diet"),( 2, "form"),(3,"training schedules"),( 4, " "))
-
+SUBTOPICS = {
+    0: ["warm-up", "choosing the right gym", "fitness goals", "tips and tricks", "consistency","injuries"],
+    1: ["recovery meals", "meal prep", "supplements", "fat loss", "hydration","macros","calories"],
+    2: ["bench press basics","proper posture","breathing techniques","common mistakes","safety","mobility"],
+    3: ["full body","Push-pull-legs","progresive overload","cardio","strength","HIIT","planning","upper/lower split"]
+}   
 # Create your models here.
 # to do: add tags, likes, dislikes
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    # related name = raar
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="blog_posts"
     )
