@@ -28,14 +28,17 @@ def create_post(request):
             request, messages.SUCCESS,
             'Post submitted succesfully!'
         )
-        return redirect('home')
+            return redirect('home')
 
+        else:
+            messages.add_message(
+                request, messages.ERROR,
+                'post was not submitted'
+            )
+        
     else:
         form = PostForm()
-        messages.add_message(
-            request, messages.ERROR,
-            'post was not submitted'
-        )
+
         
     return render(request, 'posts/create_post.html', {'form': form})
 
@@ -162,7 +165,7 @@ def comment_edit(request, slug, comment_id):
             print("comment saved")
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
             return redirect('post_detail', slug=slug) 
-
+            
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
             print("form is invalid")
@@ -182,7 +185,6 @@ def comment_delete(request, slug, comment_id):
     if comment.author == request.user:
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
-        
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
