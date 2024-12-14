@@ -3,12 +3,12 @@ from django.contrib.auth.models import User
 from multiselectfield import MultiSelectField
 
 TOPIC = ((0, "advice"),( 1, "diet"),( 2, "form"),(3,"training schedules"),( 4, " "))
-SUBTOPICS = {
-    0: ["warm-up", "choosing the right gym", "fitness goals", "tips and tricks", "consistency","injuries"],
-    1: ["recovery meals", "meal prep", "supplements", "fat loss", "hydration","macros","calories"],
-    2: ["bench press basics","proper posture","breathing techniques","common mistakes","safety","mobility"],
-    3: ["full body","Push-pull-legs","progresive overload","cardio","strength","HIIT","planning","upper/lower split"]
-}   
+SUBTOPICS = ((0,"warm-up"),(1,"choosing the right gym"),(2,"fitness goals"),(3,"tips and tricks"),(4,"consistency"),(5,"injuries"),(6,"recovery meals"),(7,"meal prep"),(8,"supplements"),
+(9,"fat loss"),(10,"hydration"),(11,"macros"),(12,"calories"),(13,"basics"),(14,"proper posture"),(15,"breathing techniques"),(16,"common mistakes"),(17,"safety"),(18,"mobility"),
+(19,"full body"),(20,"push-pull-legs"),(21,"progressive overload"),(22,"cardio"),(23,"strength"),(24,"HIIT"),(25,"planning"),(26,"upper/lower"))
+
+ 
+
 # Create your models here.
 # to do: add tags, likes, dislikes
 class Post(models.Model):
@@ -20,10 +20,13 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    topic = models.IntegerField(choices=TOPIC, default = 4)
+    topic = models.IntegerField(choices=TOPIC, default = 4, blank=True)
+    subtopics = MultiSelectField(choices=SUBTOPICS, blank=True)
+    
     class Meta:
         ordering = ["created_on"]
     def __str__(self):
+
         return f"{self.title} | written by {self.author}"
     # could you django-taggit for tags but could cause issue cause
     # issue because we use postgress instead of sqlite
