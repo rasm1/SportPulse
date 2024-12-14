@@ -29,7 +29,7 @@ def create_post(request):
             request, messages.SUCCESS,
             'Post submitted succesfully!'
         )
-        #return redirect('post_detail', slug=slug) 
+        return redirect('home')
 
     else:
         form = PostForm()
@@ -121,27 +121,30 @@ def post_detail(request, slug):
             request, messages.SUCCESS,
             'Comment submitted succesfully!'
             )
-            return redirect('post_detail', slug=post.slug)
+            return HttpResponseRedirect(reverse('post_detail', args=[slug]))
             
-        # bugged: always displays the message 
+            
+         
         else:
             messages.add_message(
                 request, messages.ERROR,
                 'comment was not submitted'
             )
-    comment_form = CommentForm()
+    
+    else:
+        comment_form = CommentForm()
 
     
-
     return render(
         request,
         "posts/post_detail.html",
-        {"post": post,
+        {
+        "post": post,
         "comments": comments,
         "comment_form": comment_form,
-        
         }
     )
+    
 
     # does not execute, when submit is pressed in the edit comment section it treats it as a whole new comment
 print("before edit function")
