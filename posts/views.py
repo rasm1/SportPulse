@@ -6,7 +6,7 @@ from .models import Post, Comment
 from .forms import CommentForm, PostForm
 
 
-# Create your views here.
+# views
 class PostList(generic.ListView):
     queryset = Post.objects.all().order_by("-created_on")
     template_name = "posts/index.html"
@@ -141,34 +141,25 @@ def post_detail(request, slug):
     )
     
 
-print("before edit function")
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
     """
 
-    print(" inside edit")
-
     if request.method == "POST":
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
-        print("recieved post request")
         comment_form = CommentForm(data=request.POST, instance=comment)
-        print("form created, checking validity")
 
         if comment_form.is_valid() and comment.author == request.user:
-            print("Form is valid and user is authorized")
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-            print("comment saved")
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
-            return redirect('post_detail', slug=slug) 
-            
+            return redirect('post_detail', slug=slug)   
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
-            print("form is invalid")
     
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
     

@@ -12,6 +12,7 @@ SUBTOPICS = ((0,"warm-up"),(1,"choosing the right gym"),(2,"fitness goals"),(3,"
 (22,"cardio"),(23,"strength"),(24,"HIIT"),(25,"planning"),(26,"upper/lower"))
 
  
+ # model for Posts
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -31,6 +32,7 @@ class Post(models.Model):
         return f"{self.title} | written by {self.author}"
 
 
+# model for comments
 
 class Comment(models.Model):
     post = models.ForeignKey(
