@@ -1,9 +1,8 @@
 
-
-
 const deleteModalpost = new bootstrap.Modal(document.getElementById("deleteModalpost"));
 const deleteButtonsPost = document.getElementsByClassName("btn-delete-post");
 const deleteConfirmPost = document.getElementById("deleteConfirmPost");
+
 
 
 /**
