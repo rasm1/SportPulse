@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm, PostForm
@@ -12,6 +13,7 @@ class PostList(generic.ListView):
     template_name = "posts/index.html"
     paginate_by = 6
 
+@login_required
 def create_post(request):
     """"
      View to create a post 
@@ -43,6 +45,7 @@ def create_post(request):
     return render(request, 'posts/create_post.html', {'form': form})
 
 
+@login_required
 def post_edit(request, slug, post_id):
     """
     view to edit post
@@ -50,8 +53,12 @@ def post_edit(request, slug, post_id):
     form = PostForm()
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
+    
     if request.method == "POST":
-
+        if post.author != request.user:
+            messages.add_message(request, messages.ERROR, 'You can only edit your own posts!')
+            return redirect('home')
+        
         form = PostForm(data = request.POST, instance=post)
 
         if  form.is_valid() and post.author == request.user:
@@ -68,7 +75,7 @@ def post_edit(request, slug, post_id):
 
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
 
-
+@login_required
 def post_delete(request, slug, post_id):
     """
     view to delete post
@@ -107,7 +114,8 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_form = CommentForm()
-
+    
+    
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -140,7 +148,7 @@ def post_detail(request, slug):
         }
     )
     
-
+@login_required
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
@@ -164,7 +172,7 @@ def comment_edit(request, slug, comment_id):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
     
     
-
+@login_required
 def comment_delete(request, slug, comment_id):
     """
     view to delete comment

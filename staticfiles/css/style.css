@@ -117,6 +117,13 @@ body {
     color: #fff;
 }
 
+.btn-edit-post {
+    background-color: #188181;
+    color: #fff;
+    margin-left: 46%;
+    margin-right: 46%;
+}
+
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
@@ -143,6 +150,13 @@ body {
 .btn-delete {
     color: #fff;
     background: #E84610;
+}
+
+.btn-delete-post {
+    color: #fff;
+    background: #E84610;
+    margin-left: 46%;
+    margin-right: 46%;
 }
 
 .btn-like:hover,
