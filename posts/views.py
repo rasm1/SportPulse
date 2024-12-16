@@ -73,6 +73,9 @@ def post_edit(request, slug, post_id):
             return redirect('home')
             messages.add_message(request, messages.ERROR, 'Error updating post!')
 
+    else:
+        form = PostForm(instance=post) 
+        
     return render(request, 'posts/edit_post.html', {'form': form, 'post': post})
 
 @login_required
