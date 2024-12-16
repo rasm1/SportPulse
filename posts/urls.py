@@ -1,5 +1,7 @@
 from . import views
 from django.urls import path
+from django.conf.urls import handler404
+from django.conf.urls import handler500
 
 urlpatterns = [
     path('',views.PostList.as_view(),name = 'home'),
@@ -12,6 +14,9 @@ urlpatterns = [
     path('<slug:slug>/edit_comment/<int:comment_id>',
     views.comment_edit, name='comment_edit'),
     path('<slug:slug>/delete_comment/<int:comment_id>',
-    views.comment_delete, name='comment_delete'),
-    
+    views.comment_delete, name='comment_delete'),    
 ]
+
+
+handler404 = custom_handler404
+handler500 = custom_handler500
