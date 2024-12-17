@@ -27,7 +27,12 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+     '8000-rasm1-sportpulse-93blk26t82y.ws-eu117.gitpod.io',
+     '.herokuapp.com',
+     'localhost'
+     "https://ui.dev/amiresponsive?"
+]
 
 
 # Application definition
