@@ -6,9 +6,8 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: #f2f9ff;
 }
-
 
 .red-o {
     color: #E84610;
@@ -18,12 +17,24 @@ body {
     font-weight: 300;
 }
 
+.text-light{
+    color: #f2f9ff;
+}
+.navbar-dark{
+    background-color: #366fc7;
+}
+
+.intro-text{
+    text-align: center;
+    padding-bottom: 2%;
+}
+
 .light-bg {
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: #000000;
 }
 
 .main-bg {
@@ -44,7 +55,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    background-color: #5d5d5d;
 }
 
 .scale {
@@ -91,6 +102,22 @@ body {
     transform: skew(15deg);
     z-index: 100;
 }
+.collumn-wrapper{
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    
+}
+.col1, .col2{
+    flex: 0 0 45%; 
+    max-width: 45%; 
+    box-sizing: border-box; 
+}
+
+.col-md-8{
+    padding-bottom: 30px;
+}
+
 
 .post-link {
     text-decoration: none;
