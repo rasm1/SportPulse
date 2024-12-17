@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from multiselectfield import MultiSelectField
 from django.utils.text import slugify
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 TOPIC = ((0, "advice"),( 1, "diet"),( 2, "form"),(3,"training schedules"),( 4, " "))
 
@@ -63,7 +64,8 @@ class Post(models.Model):
     default='none',
     blank=True
 )
-    workout_frequency = models.IntegerField(default=2, blank=True, help_text="How many times do you workout per week?")
+    workout_frequency = models.IntegerField(default=2, blank=True, help_text="How many times do you workout per week?",
+    validators=[MinValueValidator(0), MaxValueValidator(7)])
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)

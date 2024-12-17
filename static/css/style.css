@@ -90,6 +90,22 @@ body {
     transform: skew(15deg);
     z-index: 100;
 }
+.collumn-wrapper{
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    
+}
+.col1, .col2{
+    flex: 0 0 45%; 
+    max-width: 45%; 
+    box-sizing: border-box; 
+}
+
+.col-md-8{
+    padding-bottom: 30px;
+}
+
 
 .post-link {
     text-decoration: none;
