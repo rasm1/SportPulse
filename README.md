@@ -3,7 +3,7 @@
 
 Welcome to SportPulse, the ultimate Reddit-style community for fitness enthusiasts! Whether you’re a seasoned athlete, a gym newbie, or someone looking to stay active, SportPulse is your go-to hub for everything workout-related. Share your progress, ask for advice, discover routines, and connect with like-minded individuals who share your passion for fitness. From lifting tips to yoga hacks, SportPulse keeps the energy high and the motivation stronger than ever. 💪
 
-![Home Screen](/documentation/readme_images/amiresponsive-sportpulse.png)
+![Home Screen](/staticfiles/readme_img/amiresponsive-sportpulse.png)
 
 [View Sportpulse live website here](https://sportpulse-6bad7f07e667.herokuapp.com)
 - - -
