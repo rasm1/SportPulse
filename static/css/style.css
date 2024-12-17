@@ -24,6 +24,11 @@ body {
     background-color: #366fc7;
 }
 
+.intro-text{
+    text-align: center;
+    padding-bottom: 2%;
+}
+
 .light-bg {
     background-color: #fff;
 }
