@@ -31,6 +31,7 @@ ALLOWED_HOSTS = [
      '8000-rasm1-sportpulse-93blk26t82y.ws-eu117.gitpod.io',
      '.herokuapp.com',
      'localhost'
+     "https://ui.dev/amiresponsive?"
 ]
 
 
