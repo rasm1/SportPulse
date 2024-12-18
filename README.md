@@ -9,37 +9,46 @@ Welcome to SportPulse, the ultimate Reddit-style community for fitness enthusias
 - - -
 
 ## Table of Contents
-### [User Experience](#user-experience-ux)
-* [Project Goals](#project-goals)
-* [Agile Methodology](#agile-methodology)
-* [First time user](#first-time-user)
-* [Registered user](#registered-user)
-### [Design](#design-1)
-* [Color Scheme](#color-scheme)
-* [Cabin Images](#cabin-images)
-* [Wireframes](#wireframes)
-* [Data Model](#data-models)
-* [User Journey](#user-journey)
-* [Database Scheme](#database-scheme)
-### [Security Features](#security-features-1)
-### [Features](#features-1)
-* [Existing Features](#existing-features)
-* [Features Left to Implement](#features-left-to-implement)
-### [Technologies Used](#technologies-used-1)
-* [Languages Used](#languages-used)
-* [Databases Used](#databases-used)
-* [Frameworks Used](#frameworks-used)
-* [Programs Used](#programs-used)
-### [Deployment and Local developement](#deployment-and-local-developement-1)
-* [Local Developement](#local-developement)
-* [ElephantSQL Database](#elephantsql-database)
-* [Cloudinary](#cloudinary)
-* [Heroku Deployment](#heroku-deployment)
-### [Testing](#testing-1)
-### [References](#references-1)
-* [Docs](#docs)
-* [Content](#content)
-* [Acknowledgments](#acknowledgments)
+### User Experience
+* Project Goals
+* Agile Methodology
+* First time user
+* Registered user
+### Design
+* Color Scheme
+* Wireframes
+* Data Model
+* Database Scheme
+### Security Features
+* User authentication
+* Login Decorator
+* CSRF Protection
+* Custom error pages
+* Custom error pages
+* author verification
+### Features
+* Existing Features
+* Features Left to Implement
+### Technologies Used
+* Languages Used
+* Databases Used
+* Frameworks Used
+* Programs Used
+### Deployment and Local developement
+* Local Developement
+* PostgreSQL Database
+* Heroku Deployment
+### Testing
+* Responsiveness Testing
+* Browser Compatibility Testing
+* Device Testing
+* Code Validation
+* bugs
+* Features Testing
+### References
+* Docs
+* Content
+* Acknowledgments
 
 ---
 
