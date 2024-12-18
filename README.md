@@ -190,46 +190,27 @@ The 'Lato' font is specificied as the primary font with the standard 'sans-serif
 
 1. AllAuth User Model
     * Django Allauth, the User model is the default user model provided by the Django authentication system
-    * The User entity has a one-to-many relationship with the Booking entity. This means that a User can have multiple Bookings, but each Booking is associated with only one User.
+    
 ---
-2. Amenity Model
-    * Data model created so admin can add amenities to the cabin booking, and regulate the name and price of the amenities
+2. Comment Model
+    * Model made so that users can leave a comment on all posts
+    * Comments can only be edited/ deleted by the original author
+    * The User entity has a one-to-many relationship with the Comments entity. This means that a User can have multiple comments. But multiple comments cannot be made multiple users.
+---
+3. Post model
+    * Model made so users can make posts on the forum.
+    * the user entity has a one-to-many relationship with the post model. This means that one user can make multiple posts but multiple posts cannot have multiple users.
     * Only Admin can change the data in the backend.
-    * User can book those amenities through the Booking Model
-    * An Amenity can be associated with multiple Cabins, and a Cabin can have multiple Amenities. This is represented by the many-to-many relationship between Amenity and Cabin.
-    * There are two amenites set up, which are cave exploration and kayak rental
+    * input provided: title, content, topic, subtopic, experience_level, goal, equipment_available, workout frequency, nutrition focus
 ---
-3. Cabin Model
-    * A Cabin can have multiple Bookings, but each Booking is associated with only one Cabin. This is represented by the foreign key relationship between Cabin and Booking.
-    * Admin can add cabins through djangos admin panel.
-    * Only Admin can change the data in the backend.
-    * User can see the cabin information and image based on the chosen cabin.
-    * Information provided is price, image, description, number of bedrooms, maximum guests, amenities
----
-4. Booking Model
-    * A User can have multiple Bookings, but each Booking is associated with only one User. This is represented by the foreign key relationship between User and Booking.
-    * Booking model has a feature that prevents overlapping bookings, so users dont book on the same dates
-    * Total price is also calculated in the backend that is then displayed to user to show the total price of the booking, that includes if a user also adds amenities to the booking.
-    * Full CRUD functionality is available to the user.
-    * User in order to book has to fill check-in, check-out dates, number of guests and optional amenities
-    ---
-
-### User Journey 
-
-![User Journey](documentation/readme_images/user-journey.PNG)
 
 ### Database Scheme
 
 Entity Relationship Diagram (ERD)
 
-![DataScheme](documentation/readme_images/data-scheme.PNG)
+![DataScheme](/staticfiles/readme_img/erd.png)
 
-* The Amenity entity represents amenities that can be associated with cabins, with fields id as the primary key, name for the amenity's name, and price for the amenity's price.
-* The Cabin entity represents individual cabin listings, with fields id as the primary key, name for the cabin's name, description for the cabin's description, price for the cabin's price, image for the cabin's image, max_guests for the maximum number of guests allowed, and bedrooms for the number of bedrooms in the cabin.
-* The Booking entity represents a booking made by a user for a specific cabin, with fields id as the primary key, cabin_id as a foreign key referencing the Cabin entity, user_id as a foreign key referencing the User entity, check_in_date for the booking's check-in date, check_out_date for the booking's check-out date, num_guests for the number of guests in the booking, cave_exploration_tickets for the optional quantity of cave exploration tickets, kayak_rentals for the optional quantity of kayak rentals, and total_price for the total price of the booking.
-
-This data scheme allows for the management of users, amenities, cabins, and bookings. Users can make bookings for specific cabins, and each booking can have associated details such as the check-in and check-out dates, number of guests, and optional extras.
-
+This data scheme allows for the management of users, posts, and comments. Users can make a post and each post can have multiple comments.
 ## Security Features
 
 ### User Authentication
@@ -238,20 +219,12 @@ This data scheme allows for the management of users, amenities, cabins, and book
 
 ### Login Decorator
 
-* booking_create, booking_success, booking_overview, edit_booking, and delete_booking: These views involve operations related to user bookings and require authentication with the login_required decorator.
-* This ensures that only authenticated users can access these views.
+* used on all CRUD views for posts and comments.
 
 ### CSRF Protection
 
 * Django provides built-in protection against Cross-Site Request Forgery (CSRF) attacks. CSRF tokens are generated for each user session, and they are required to submit forms or perform state-changing actions. When a user logs out, the session and associated CSRF token are invalidated, making it difficult for an attacker to forge a valid request using a copied URL.
 
-### Form Validation
-
-* The booking_create view validates form input using the BookingForm class. It checks for various validation errors, such as the number of guests, check-in and check-out dates, overlapping bookings, and additional validations for cave exploration tickets and kayak rentals.
-
-### Overlapping Booking
-
-* In the booking_create view, the code checks for overlapping bookings by querying the database for existing bookings that match certain conditions. It compares the selected check-in and check-out dates with the dates of existing bookings for the same cabin. If any overlapping bookings are found, an error message is added to the form, and a warning message is displayed to the user.
 
 ### Custom error pages
 
@@ -270,75 +243,53 @@ This data scheme allows for the management of users, amenities, cabins, and book
 
 ### Existing Features
 
-* Home Page
-    * Displays a navigation bar with logo, main heading, amenities details, carousel cabin view, about section, footer with socials
-
-![Home Page](documentation/readme_images/home-page.PNG)
-
-* Once logged in the Sign Up button changes to Book Now button
-
-![Book Now](documentation/readme_images/book-now.PNG)
-
-
-* Logo
-    * Logo was created using [Craiyon](https://www.craiyon.com/) AI image generator, in which I used words to describe the logo and then it was generated.
-
-![Logo](documentation/readme_images/logo.PNG)
-
-* Navigation Bar
-    * It differs if its a user, admin or just a visitor
-
-    * Navigation bar for a visitor
-
-    ![Visitor](documentation/readme_images/navigation-bar.PNG)
-
-    * Navigation bar for a user
-    ![User](documentation/readme_images/user-navigation-bar.PNG)
-    ![User Dropdown](documentation/readme_images/user-dropdown.PNG)
-
-    * Navigation bar for admin
-    ![Admin](documentation/readme_images/admin-navigation-bar.PNG)
-    ![Admin Dropdown](documentation/readme_images/admin-dropdown.PNG)
-
-* Amenities
-    * Description of the amenities which user might like to experience.
-
-![Amenities](documentation/readme_images/amenities.PNG)
-
-* Cabin Carousel
-    * When on home page there is a carousel that displays all available cabins for booking, it also has controls to move left or right, name and description of the cabin, when its clicked it redirects users to cabin overview page and visitors are asked to create an account or login in order to view the cabins in greater detail.
-
-![Cabin Carousel](documentation/readme_images/carousel.PNG)
-
-* About Section
-    * It contains a short description of Woodland Whispers Retreat and a short lake tale
-
-![About](documentation/readme_images/about.PNG)
-
-* Footer
-    * Contains copyright information, creator and social links which are all linked to the creator of the website, becuase purpouse of this website is educational.
-
-![Footer](documentation/readme_images/footer.PNG)
-
-* Contact Page
-    * For educational purposes, the website includes fictional contact information such as an address, phone number, and email. It also includes social links, which are all linked to developer for educational purposes.
-
-![Contact](documentation/readme_images/contact.PNG)
-
+1. homepage
+* homepage shows list of posts pagined on the 6th post
+* next and previous button to see next /previous 6 posts
+* clickable post titles to redirect to comments page
+2. comments page
+* displays title of the page , author, content and time of posting
+* displays comments (if placed)
+* has an edit_post button that redirects to edit posts page (if the user is the author)
+* has a delete button that deletes post from database (if the user is the author)
+* has an edit button that lets user edit the comments (if the user is the author)
+* clicking the edit button prepopulates the body with content 
+* has a delete button that deletes the comment from the database (if the user is the author)
+3. create post page
+* link in header (create post) redirects to create post page
+* dynamicly generates SLUG
+* automaticly records the time and date of post creation
+* displays an input field for title
+* displays an input field for content
+* displays an input field for topics
+* displays an input field for subtopics depending on what topic is selected, if no topic is selected it hides
+* displays an input field for goal
+* displays an input field for workout_frequency
+* displays an input field for available equipment if the user selects the form or training schedule topic, if not selected it hides
+* displays an input field for nutrion focus if the user selects the diet topic, if not selected it hides.
+* displays notification if the user has succesfully created a post or if the post was unsuccesfull 
+4. edit post page
+* mostly the same as create post page
+* automaticly shows title in at the top
+* prepopulates the content fields with previously inputted data
+* displays notification if the user has edited a post succesfully or if an error occured
+5. header
+* contains logo linking to homepage
+* contains 'home' button linking to homepage
+* when logged in contains the create post button that links to create post page
+* when logged in contains the logout button that links to logout page
+* when logged out contains the register button that links to sign up page
+* when loggout out contains the login button that links to login page
+6. footer
+* contains links to various social media websites
+<hr>
 * Sign up
     * User can create an account
 
-![Sign Up](documentation/readme_images/sign-up.PNG)
 
 * Login
     * User can login into an account, if they have created one
 
-![Login](documentation/readme_images/login.PNG)
-![Login Message](documentation/readme_images/login-message.PNG)
-
-* Browse Available Cabins
-    * Admin can create cabins through django admin panel
-    * Cabins are paginated to display 6 cabins per page
 
 ![Browse Cabins](documentation/readme_images/browse-cabins.PNG)
 
