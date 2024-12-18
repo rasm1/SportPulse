@@ -12,10 +12,8 @@ Welcome to SportPulse, the ultimate Reddit-style community for fitness enthusias
 ### [User Experience](#user-experience-ux)
 * [Project Goals](#project-goals)
 * [Agile Methodology](#agile-methodology)
-* [Target Audience](#target-audience)
 * [First time user](#first-time-user)
 * [Registered user](#registered-user)
-* [Admin user](#admin-user)
 ### [Design](#design-1)
 * [Color Scheme](#color-scheme)
 * [Cabin Images](#cabin-images)
@@ -47,51 +45,36 @@ Welcome to SportPulse, the ultimate Reddit-style community for fitness enthusias
 
 ## User Experience (UX)
 
-Immerse yourself in a seamless and captivating user experience at Woodland Whispers Retreat. Our website offers intuitive navigation, stunning visuals, and a hassle-free booking process. Personalized recommendations, comprehensive information, and responsive support ensure that your needs are met every step of the way. Enjoy a mobile-friendly experience, easily planning your lakeside getaway from any device. Discover tranquility and outdoor adventures at Woodland Whispers Retreat, where your journey from exploration to booking is effortlessly delightful.
+Gym enthusiast unite and find each other on the Sportpulse forum. Our website offers an intuitive and engaging way to connect with fellow hym enthusiast. Wondering how to start on your fitness journey? Looking for tips and tricks on how to perform your favorite exercises? Or are you just curious what other gym goers are talking about these days, Sportpulse offers an easy and seamless way to connect to like-minded individuals. Discover the latest trends on all things fitness here at Sportpulse.
 
 ### Project Goals
 
-The goal of the Woodland Whispers Retreat project is to create an immersive and user-friendly online platform that allows visitors to explore, book, and enjoy a serene lakeside getaway. The project aims to provide a seamless user experience, showcasing the beauty of the retreat through captivating visuals and comprehensive information and a booking process for their dream retreat.
+The goal of Sportpulse is to create a forum where users can easily and seamlessly communicate with like minded individuals to learn more about everything fitness related.
 
 ### Agile Methodology
 
-Agile Methodology was used to help prioritize and organize tasks, writting the user stories and using Project Boards on Github. Template was created to help write User Stories and define Epics
+Agile Methodology was used to help prioritize and organize tasks, writting the user stories and using Project Boards on Github. Template was created to help write User Stories
 
-* Epics were written containing possible user stories and based on that the website was made.
-* User stories were created by looking at epics and through iterations the project was advancing.
+* User stories were created by looking at possible user needs and through iterations.
 * Project Board is set to public.
 * Project Board was used to track progression of the task through the Todo, In progress and Done columns
-* Labels were added to sort the issues based on the importance.
+* Labels were added to sort the issues based on the importance and difficulty.
 
 <details>
 <summary> User Stories Template
 </summary>
 
-![User Stories Template](documentation/readme_images/template.PNG)
-</details>
-
-<details>
-<summary> User Stories, Issues
-</summary>
-
-![User Stories, Issues](documentation/readme_images/issues.PNG)
+![User Stories Template](/staticfiles/readme_img/user-story-template.png)
 </details>
 
 <details>
 <summary> Project Board
 </summary>
 
-![Project Board](documentation/readme_images/project-board.PNG)
+![Project Board](/staticfiles/readme_img/user_story_board.png)
 </details>
 
 ### User Stories
-
-#### Epics
-* Initial Deployment
-* Home Page
-* User Registration
-* Website Admin and Bookings
-* Maintain consistent design with responsiveness in mind
 
 #### User Stories
 1. Initial Deployment
@@ -100,78 +83,56 @@ Agile Methodology was used to help prioritize and organize tasks, writting the u
 2. Home Page
 * Create a navigation bar
 * Create a footer
-3. User Registration
+* create a list of posts
+3. creating a post
+* create posts page
+* Add custom properties to the page
+4. creating comments
+* Add a post detail page
+* Add comment submitting functionality
+5. deleting posts & comments
+* create a delete button for posts and comments
+* attach a modal to delete buttons for confirmation
+6. User Registration and authentication
 * Sign Up page
 * User registration, log in, log out
 * Display users name
-4. Website Admin and Bookings
+7. Website Admin 
 * Alert messages
 * Crud functionality
-* Cabin pagination
 * Admin panel
-* Double bookings
-* Book Amenities
-* Total Price
-4. Maintain consistent design with responsiveness in mind
+8. Maintain consistent design with responsiveness in mind
 * Maintain consistent design
 * Test responsiveness
 
-Detailed look can be found in the [project board](https://github.com/users/Thomas-Tomo/projects/2)
-
-### Target Audience
-
-* Individuals seeking a serene and tranquil lakeside retreat experience.
-* Travelers looking for a seamless and hassle-free booking process for their getaway.
-* Outdoor enthusiasts interested in exploring nature and enjoying outdoor adventures.
-* People who value a captivating and visually appealing online experience.
-* Mobile users who want the convenience of planning their retreat from any device.
-* Couples looking for a romantic and secluded getaway surrounded by nature's beauty.
-* Families in search of a serene and family-friendly retreat to create lasting memories.
-* Nature photographers or artists searching for picturesque landscapes and natural inspiration.
+Detailed look can be found in the [project board](https://github.com/users/rasm1/projects/2/views/1)
 
 ### First time user
 
 * Simple and intuitive website navigation for easy exploration and discovery.
-* Engaging visuals showcasing the beauty of the retreat and its surroundings.
-* Informative content providing an overview of amenities, activities.
+* Informative content providing usefull and interesting information to the user.
 * User-friendly forms with clear validation messages to ensure accurate input.
 * Easy Registration process.
 
 ### Registered User
 
 * Seamless login process with a secure and personalized user account.
-* Browsing available cabins
-* Booking
-* Access to a personalized dashboard displaying booking history and upcoming reservations.
-* Ability to easily modify or cancel existing bookings for flexibility and convenience.
+* Ability to easily modify or cancel posts and comments
 
-### Admin user
-
-* Secure and separate login portal for admin users with appropriate access control.
-* Access to an admin dashboard for managing cabins, amenities, and bookings.
-* Ability to add, edit, or delete cabin listings, including details and availability.
-* Management of amenity options, such as adding, updating, or removing amenities.
-* Ability to delete user accounts, providing the necessary control for managing user data and accounts.
-* Management of bookings, including the ability to view, modify, or delete bookings as needed.
 
 ## Design
 
-The Woodland Whispers Retreat website boasts an inviting and visually pleasing design. Earthy tones and a warm color palette evoke a sense of tranquility. The navigation bar features a circular logo and easy-to-read text. Captivating photos are displayed in a bordered carousel with elegant captions. The about section utilizes a dark background and horizontal lines for clarity. Social media links are presented in the contact section, and the footer complements the overall design.
+The Sportpulse forum provides a clear and concise design. The navigation bar features a slick logo with an easy to read contrast in colours. Darker tones were used in contrast with the white background to make posts pop out. Horizontal lines were used for clarity. The footer highlights the social media links for more engagement.
 
 ### Color Scheme
-![Color Scheme](documentation/readme_images/color-scheme.PNG)
+Main color for application was: rgb(249, 250, 252) (background color)
+header color: rgb(54, 111, 199);
+footer color: rgb(0, 0, 0);
 
-### Cabin Images
-
-All cabin images were created using Artificial Inteligence, AI image generator [Craiyon](https://www.craiyon.com/).
-
-### Logo
-
-Logo was also created using AI image generator [Craiyon](https://www.craiyon.com/).
 
 ### Typography
 
-The 'Lora' font is specified as the primary font, and the 'Domine' font is specified as a fallback font.
+The 'Lato' font is specificied as the primary font with the standard 'sans-serif' font specified as a fallback.
 
 ### Wireframes
 
@@ -179,77 +140,50 @@ The 'Lora' font is specified as the primary font, and the 'Domine' font is speci
 <summary> Home Page
 </summary>
 
-![Home Page](documentation/wireframes/home-page.PNG)
+![Home Page](/staticfiles/readme_img/wireframe-home.png)
 </details>
 
 <details>
 <summary> Home Page when logged in
 </summary>
 
-![Home Page when logged in](documentation/wireframes/home-page-logged-in.PNG)
+![Home Page when logged in](/staticfiles/readme_img/wireframe-logged-in.png)
 </details>
 
 <details>
-<summary> Contact Page
+<summary> Create post Page
 </summary>
 
-![Contact Page](documentation/wireframes/contact-page.PNG)
+![Create post Page](/staticfiles/readme_img/wireframe-create-post.png)
 </details>
 
 <details>
-<summary> Cabin Booking Page
+<summary> Edit post Page
 </summary>
 
-![Cabin Booking Page](documentation/wireframes/cabin-booking-page.PNG)
+![Edit post Page](/staticfiles/readme_img/wireframe-edit-post.png)
 </details>
 
-<details>
-<summary> Make a Booking Page
-</summary>
-
-![Make a Booking Page](documentation/wireframes/make-a-booking-page.PNG)
-</details>
 
 <details>
-<summary> My Booking Page
+<summary> Comments Page
 </summary>
 
-![My Booking Page](documentation/wireframes/my-booking-page.PNG)
-</details>
-
-<details>
-<summary> Edit Booking Page
-</summary>
-
-![Edit Booking Page](documentation/wireframes/edit-booking-page.PNG)
-</details>
-
-<details>
-<summary> Delete Booking Page
-</summary>
-
-![Delete Booking Page](documentation/wireframes/delete-booking-page.PNG)
+![Comments Page](/staticfiles/readme_img/wireframe-comments.png)
 </details>
 
 <details>
 <summary> User Login Page
 </summary>
 
-![User Login Page](documentation/wireframes/user-login-page.PNG)
-</details>
-
-<details>
-<summary> User Logout Page
-</summary>
-
-![User Logout Page](documentation/wireframes/user-logout-page.PNG)
+![User Login Page](/staticfiles/readme_img/wireframe-login.png)
 </details>
 
 <details>
 <summary> User Sign Up Page
 </summary>
 
-![User Sign Up Page](documentation/wireframes/user-sign-up-page.PNG)
+![User Sign Up Page](/staticfiles/readme_img/wireframe-register.png)
 </details>
 
 ### Data Models
