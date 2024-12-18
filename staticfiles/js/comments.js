@@ -16,7 +16,6 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 * - Sets the form's action attribute to the `edit_comment/{commentId}` endpoint.
 */
 
- // Clear the form when creating a new comment
 
 for (let button of editButtons) {
   button.addEventListener("click", (e) => {

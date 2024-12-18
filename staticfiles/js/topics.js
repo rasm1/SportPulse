@@ -14,6 +14,13 @@ const TOPIC_SUBTOPICS_MAPPING = {
     4: [],
 };
 
+/**
+ * fetches selected topic and interprets choise as a numeric value
+ * links topic to selected topic, if not selected = empty
+ * fetches subtopic checkboxes
+ * loops through all label elements, if labels has content subtopics and the subtopic selected is 1 / 3 it hides the label
+ * loops through subtopiccheckboxes and displays them depending on what topic was selected
+*/
 function filterSubtopics() {
     const selectedTopic = parseInt(topics.value, 10);
     const allowedSubtopics = TOPIC_SUBTOPICS_MAPPING[selectedTopic] || [];
@@ -36,6 +43,12 @@ function filterSubtopics() {
     });
 }
 
+/**
+ * fetches selected topic and interprets choise as a numeric value
+ * loops through all label elements, if labels has content equipment available and the subtopic selected is 1 / 3 it hides the label
+ * shows equipment available checkboxes if selectedtopic equals 2 or 3
+ * if the selected topic equals 2 / 3, displays equipment avaiable label
+*/
 
 function toggleEquipmentCheckboxes() {
     const selectedTopic = parseInt(topics.value, 10);

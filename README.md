@@ -231,15 +231,15 @@ This data scheme allows for the management of users, posts, and comments. Users 
 * 404 Error Page, provides user with a button the redirect to home page.
 * 500 Error Page, provides user with a button the redirect to home page.
 
+### author verification
+* verifies if user is the original author during the editing of a post, if not when clicking 'submit' the user is redirected to the homepage and recieve an alert message.
+
 ## Features
 
-* Home page showcases a rotating carousel that contains available cabins
-* The website features a comprehensive list of amenities accompanied by detailed descriptions for each one.
+* Home page showcasing a paginated list of posts
 * User can make an account and login
-* When logged in, users get access to the cabin overview and are able to book cabins
-* Users can edit and delete their bookings
+* When logged in, user has access to full CRUD functionality on their posts and comments
 * Every user action is accompanied by a corresponding message to ensure that users are promptly notified of any changes or updates.
-* Total price of booking is displayed to users.
 
 ### Existing Features
 
@@ -291,156 +291,74 @@ This data scheme allows for the management of users, posts, and comments. Users 
     * User can login into an account, if they have created one
 
 
-![Browse Cabins](documentation/readme_images/browse-cabins.PNG)
-
-* Cabin pagination
-    * On the bottom of the page
-
-![Pagination](documentation/readme_images/pagination.PNG)
-
 * Logout
     * User can logout
 
-![Logout](documentation/readme_images/logout.PNG)
-
-* Make a Booking
-    * Users can make a booking by clicking the cabin they want and then read details and fill in the booking form.
-    * Form validation is implemented to make sure form are submitted correctly and if there is an error user will be notified with alert message, also if everything is good, user gets a message to notifiy them.
-    * Form contains amenities which are completely optional and they dont have to be selected.
-
-    ![Message](documentation/readme_images/alert-message.PNG)
-
-![Make a Booking](documentation/readme_images/make-a-booking.PNG)
-
-* Booking Succesful
-    * If booking is succesfull, user gets a notified message and an overview of the booking they just made, which includes all the details and a total price of the booking, also there is a button for contact page and my booking button that leads to all of the users bookings.
-
-![Booking Succesful](documentation/readme_images/booking-successful.PNG)
-
-* Booking Overview
-    * Includes all of the user bookings, which have buttons to edit or delete bookings.
-
-![Booking Overview](documentation/readme_images/my-bookings.PNG)
-
-* Already booked dates
-    * User won't be able to book dates that are already booked.
-    * Dates in the past are unavailable.
-
-![Booked Dates](documentation/readme_images/booked-dates.PNG)
-
-* Edit Booking
-    * User can change their booking and save changes
-
-![Edit Booking](documentation/readme_images/edit-booking.PNG)
-
-* Delete Booking
-    * User can delete their booking, before it is deleted it has to be confirmed.
-
-![Delete Booking](documentation/readme_images/delete-booking.PNG)
-
-* Alert messages
-    * For every action there is an alert message to notify user
-    * Here is one example
-
-![Alert Message](documentation/readme_images/delete-message.PNG)
-
-* Admin Features
-    * Django built in admin panel allows admin control over the website.
-    * Admin can access admin panel through his navigation bar
-    * Can add, update, delete cabins.
-    * Create amenities, update existing amenities which are connected to the cabins.
-    * Delete accounts, verifiy emails, delete bookings...
 
 * Error Pages
     * There are custom 404 and 500 error pages set up.
     * They contain buttons to redirect to home page if there is an error.
 
-![Error 404](documentation/readme_images/error.PNG)
-![Error 500](documentation/readme_images/500-error-page.PNG)
 
 ### Features Left to Implement 
 
-* User Reviews: Allow users to leave reviews and ratings for cabins they have booked, providing valuable feedback for other users.
-* Advanced Search: Implement an advanced search functionality, enabling users to search for cabins based on specific criteria such as price range, amenities, and availability.
-* Cabin Recommendations: Develop a recommendation engine that suggests cabins to users based on their previous bookings, interests, or preferences.
-* Online Payment: Implement an online payment system to allow users to securely make payments for their bookings directly through the website.
-* For the purposes of this project these implemenation were not necessary.
+* Ability to like and dislike comments
+* a search option so users can filter to what posts they would like to see based on topics/subtopics or other properties
+* property displays based on selected properties when post is created
+* implement more pages to handle custom errors related to authentication
 
 ## Technologies Used
 
 ### Languages Used
 
-* [HTML5](https://en.wikipedia.org/wiki/HTML5)
-* [CSS3](https://en.wikipedia.org/wiki/CSS)
-* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+* HTML5
+* CSS3
+* JavaScript
+* Python
 
 ### Databases Used
 
-* [ElephantSQL](https://www.elephantsql.com/) - Postgres database
-* [Cloudinary](https://cloudinary.com/) - Online static file storage
+* PostgreSQL - Postgres database
 
 ### Frameworks Used
 
-* [Django](https://www.djangoproject.com/) - Python framework
-* [Bootstrap 4.6.1](https://getbootstrap.com/docs/4.6/getting-started/introduction/) - CSS framework
+* Django
+* Bootstrap 4.6.1
 
 ### Programs Used
 
-* [Github](https://github.com/) - Storing the code online
-* [Gitpod](https://www.gitpod.io/) - To write the code.
-* [Heroku](https://www.heroku.com/) - Used as the cloud-based platform to deploy the site.
-* [Google Fonts](https://fonts.google.com/) - Import main font the website.
-* [Figma](https://www.figma.com/) - Used to create wireframes and schemes
-* [Craiyon](https://www.craiyon.com/) - Generate AI images of cabins and logo based on my words descriptions
-* [Am I Responsive](https://ui.dev/amiresponsive) - To show the website image on a range of devices.
-* [Git](https://git-scm.com/) - Version control
-* [Jinja](https://jinja.palletsprojects.com/en/3.1.x/) - Templating engine
-* [Favicon Generator](https://realfavicongenerator.net/) - Used to create a favicon
-* [JSHint](https://jshint.com/) - Used to validate JavaScript
-* [W3C Markup Validation Service](https://validator.w3.org/) - Used to validate HTML
-* [CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate CSS
-* [CI Python Linter](https://pep8ci.herokuapp.com/#) - Used to validate Python
-* [Colormind](http://colormind.io/) - Color Scheme
+* Github- Storing the code online
+* Gitpod - To write the code.
+* Heroku - Used as the cloud-based platform to deploy the site.
+* Google Fonts - Import main font the website.
+* Figma - Used to create wireframes and schemes
+* Am I Responsive - To show the website image on a range of devices.
+* Git - Version control
+* Jinja - Templating engine
+* JSHint - Used to validate JavaScript
+* W3C Markup Validation Service - Used to validate HTML
+* CSS Validation Service - Used to validate CSS
+* CI Python Linter - Used to validate Python
 
 ## Deployment and Local Developement
 
-Live deployment can be found on this [View Woodland Whispers Retreat live website here](https://woodland-whispers-retreat.herokuapp.com/)
+Live deployment can be found on this [View Sportpulse live website here](https://sportpulse-6bad7f07e667.herokuapp.com)
 
 ### Local Developement
 
 #### How to Fork
 1. Log in(or Sign Up) to Github
-2. Go to repository for this project [Woodland Whispers Retreat](https://github.com/Thomas-Tomo/woodland-whispers-retreat)
+2. Go to repository for this project [Sportpulse](https://github.com/rasm1/SportPulse)
 3. Click the fork button in the top right corner
 
 #### How to Clone
 1. Log in(or Sign Up) to Github
-2. Go to repository for this project [Woodland Whispers Retreat](https://github.com/Thomas-Tomo/woodland-whispers-retreat)
+2. Go to repository for this project [Sportpulse](https://github.com/rasm1/SportPulse)
 3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 5. Type the following command in the terminal (after the git clone you will need to paste the link you copied in step 3 above)
 6. Set up a virtual environment (this step is not required if you are using the Code Institute Template in GitPod as this will already be set up for you).
 7. Install the packages from the requirements.txt file - run Command pip3 install -r requirements.txt
-
-### ElephantSQL Database
-[Woodland Whispers Retreat](https://github.com/Thomas-Tomo/woodland-whispers-retreat) is using [ElephantSQL](https://www.elephantsql.com/) PostgreSQL Database
-
-1. Click Create New Instance to start a new database.
-2. Provide a name (this is commonly the name of the project: tribe).
-3. Select the Tiny Turtle (Free) plan.
-4. You can leave the Tags blank.
-5. Select the Region and Data Center closest to you.
-6. Once created, click on the new database name, where you can view the database URL and Password.
-
-### Cloudinary
-[Woodland Whispers Retreat](https://github.com/Thomas-Tomo/woodland-whispers-retreat) is using [Cloudinary](https://cloudinary.com/)
-1. For Primary interest, you can choose Programmable Media for image and video API.
-2. Optional: edit your assigned cloud name to something more memorable.
-3. On your Cloudinary Dashboard, you can copy your API Environment Variable.
-4. Be sure to remove the CLOUDINARY_URL= as part of the API value; this is the key.
-
-
 
 ### Heroku Deployment
 * Log into [Heroku](https://www.heroku.com/) account or create an account.
@@ -455,8 +373,6 @@ Live deployment can be found on this [View Woodland Whispers Retreat live websit
 * Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
 * Comment out the default database configuration.
 * Save all files and make migrations.
-* Add the Cloudinary URL to env.py
-* Add the Cloudinary libraries to the list of installed apps.
 * Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
 * Link the file to the templates directory in Heroku.
 * Change the templates directory to TEMPLATES_DIR
@@ -465,7 +381,6 @@ Live deployment can be found on this [View Woodland Whispers Retreat live websit
 #### Add the following Config Vars in Heroku:
 
 * SECRET_KEY - This can be any Django random secret key
-* CLOUDINARY_URL - Insert your own Cloudinary API key
 * PORT = 8000
 * DISABLE_COLLECTSTATIC = 1 - this is temporary, and can be removed for the final deployment
 * DATABASE_URL - Insert your own ElephantSQL database URL here
@@ -485,8 +400,121 @@ Live deployment can be found on this [View Woodland Whispers Retreat live websit
 Site is now live
 
 ## Testing
-Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
 
+### Responsiveness Testing
+
+The deployed website underwent rigorous testing on multiple devices and screen sizes to ensure its responsiveness and adaptability. Developer Tools were utilized to simulate various screen sizes, enabling thorough examination of how the website behaves across different devices. Bootstrap classes and media queries were implemented to achieve the desired design, ensuring that the website maintains its visual and functional integrity on all platforms, enhancing the user experience.
+
+[AmIResponsive](/staticfiles/readme_img/amiresponsive-sportpulse.png)
+
+### Browser Compatibility Testing
+
+This project was tested using multiple web browser to check for compatibility issues. 
+
+1. testing browsers include:
+* opera 
+* google chrome
+* microsoft edge
+* mozilla firefox
+
+### Device Testing
+
+Device testing was conducted on a variety of phone models, including Samsung Galaxy A12, iPhone 12, oppo. Family and friends have been asked to assist with this phase of testing.
+
+### Code Validation
+
+#### HTML validation
+[Basepage](/staticfiles/readme_img/base-page.png)
+
+[Create_PostPage](/staticfiles/readme_img/create-post-page.png)
+
+[Commentspage](/staticfiles/readme_img/commentspage.png)
+
+
+#### CSS Validation
+
+[CSS](/staticfiles/readme_img/css.png)
+
+#### javascript validation
+
+[posts js](/staticfiles/readme_img/postsjs.png)
+[comments JS](/staticfiles/readme_img/commentsjs.png)
+[topics js](/staticfiles/readme_img/topicjs.png)
+
+#### Python Validation
+[admin.py](/staticfiles/readme_img/adminpy.png)
+[forms.py](/staticfiles/readme_img/formspy.png)
+[models.py](/staticfiles/readme_img/modelspy.png)
+[urls.py](/staticfiles/readme_img/urlspy.png)
+[views.py](/staticfiles/readme_img/viewspy.png)
+
+## Bugs
+
+### Resolved bugs
+
+1. When comment was posted and page was refreshed, would duplicate comment and submit it to database
+* resolved by adding a hTTpresponse to edit_comment view
+2. Comment body was prepopulated when refreshing comments page
+* resolved by clearing commentform after comment submission
+3. when clicked delete post button, delete comment modal would pop up
+* resolved by giving the 2 modals seperate ID's
+
+## Features Testing 
+
+| Page          | User Action   | Expected Result  | Notes            |
+|---------------|---------------|------------------|------------------|
+| Home Page     |               |                  |                  |
+|               | Click on Logo | Redirect to Home Page | PASS        |
+|               | Click on register button (Navigation bar) | Redirect to Sign Up page | PASS |
+|               | Click on login (Navigation bar) | Move to login page | PASS |
+|               | Click on social links in footer | Open new tab with appropriate link | PASS |
+|               | Click on post title | Redirect to comments page | PASS |
+| Home Page (Logged In - User)  |                 |          |  |
+|               | After Login | register button is now create posts button | PASS |
+|               | Click on create posts | Redirect to create posts | PASS |
+|               | Click on logo | Redirects to homepage | PASS |
+|               | After Login | Users name is displayed under navigation bar | PASS |
+|               | Click on burger icon | Open dropdown menu | PASS |
+|               | Click on home in dropdown | Redirect to homepage | PASS |
+|               | Click on create post in dropdown | Redirect to create post page | PASS |
+|               | Click on Logout  | Redirect to Logout Page | PASS |
+| Create Post (Logged In - Admin)    |               |                  |                  |
+|               | leave title empty | alert to fill in field | PASS |
+|               | leave content empty | alert to fill in field | PASS |
+|               | set workout frequency to > 7 | alert to set workout frequency to 7 or lower | PASS |
+|               | set workout frequency to < 1| alert to set workout frequency to 1 or higher | PASS |
+|               | Copy paste create post url to igcognito tab| redirected to login page | PASS |
+|               | Copy paste create post url to igcognito tab logged in on other account | submits post under logged in account name | PASS |
+| edit Post (Logged In - Admin)    |               |                  |                  |
+|               | leave title empty | alert to fill in field | PASS |
+|               | leave content empty | alert to fill in field | PASS |
+|               | set workout frequency to > 7 | alert to set workout frequency to 7 or lower | PASS |
+|               | set workout frequency to < 1| alert to set workout frequency to 1 or higher | PASS |
+|               | Copy paste edit post url to igcognito tab| redirected to login page | PASS |
+|               | Copy paste edit post url to igcognito tab logged in on other account | on submit, show alert message | PASS |
+| Register Page  |                  |                  |                  |
+|               | Enter invalid email | Field will only accept email address format | PASS |
+|               | Enter valid email | No error | PASS |
+|               | Email field left empty | Email is optional | PASS |
+|               | Type invalid password | Must contain atleast 8 char | PASS |
+|               | Type valid password | No error | PASS |
+|               | Type password again (different) | Password must be the same | PASS |
+|               | Fill all the form fields | Account created, alert message that you Signed in | PASS |
+| Login Page  |                  |                  |                  |
+|               | Try invalid username | Username is not correct | PASS |
+|               | Try invalid password | Password is not correct | PASS |
+|               | Valid password and username | Logs in, message that you signed in | PASS |
+|               | Click Sign In with empty form | Fill in the form fields | PASS |
+| Logout Page  |                  |                  |                  |
+|               | Click on logout button | Sign user out, message that user signed out | PASS |
+| 404 Error Page |  |    |    |
+|               | Type in URL that does not exists | Custom 404 Error page is displayed | PASS |
+|               | Click on Take Me Home button | Redirect to Home page | PASS |
+| 500 Error Page |  |    |    |
+|               | Admin raise exception in views.py | Custom 500 Error page is displayed, local development testing | PASS |
+|               | Click on Go to Homepage button | Redirect to Home page | PASS |
+| Admin Panel |  |    |    |
+|               | CRUD functionality | Working as expected | PASS |
 ## References
 ### Docs
 
@@ -495,16 +523,18 @@ Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
 * [Bootstrap 4.6](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 * [Django docs](https://docs.djangoproject.com/en/4.2/releases/3.2/)
 * [Django Allauth](https://django-allauth.readthedocs.io/en/latest/)
-* [Django and Static Assets](https://devcenter.heroku.com/articles/django-assets)
-* [Cloudinary](https://cloudinary.com/documentation/diagnosing_error_codes_tutorial)
 * [Google](https://www.google.com/)
 
 ### Content
 
-* All of the content is imaginary and written by the developer, me, Thomas-Tomo Domitrovic.
-* All images were generated with Artificial intelligence (AI) based on my word input and description of the cabins and logo.
+* Custom error handlers and pages were inspired from Thomas-Tomo Domitrovic's [Woodland Whispers Retreat](https://github.com/Thomas-Tomo/woodland-whispers-retreat)
+* CSS layout was inspired by Code Institute's Codestar blog
+* Some functionality was inspirired by Code Institute's Codestar blog (comments CRUD functionality)
+* All of the content is imaginary.
+
 
 ### Acknowledgments
 
 * I would like to thank my mentor for support and feedback throughout this project, Mitko Bachvarov.
-* I would also like to extend my appreciation to the Slack community for their continuous engagement and willingness to share knowledge. The collaborative environment provided a platform for learning, troubleshooting, and gaining inspiration from fellow developers.
+* I would like to thank the tutor support at Code Institute for their contineaud support over the course of this project
+* I would like to thank my friends and family for their assistance in this project.

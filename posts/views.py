@@ -212,4 +212,3 @@ def custom_handler500(request):
     Custom handler for 500 (Internal Server Error) errors.
     """
     return render(request, '500.html', status=500)
-    

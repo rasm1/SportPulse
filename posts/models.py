@@ -4,6 +4,7 @@ from multiselectfield import MultiSelectField
 from django.utils.text import slugify
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+# Sets of tuples to create choises for custom properties
 TOPIC = ((0, "advice"), (1, "diet"), (2, "form"),
          (3, "training schedules"), (4, " "))
 
