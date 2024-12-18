@@ -528,6 +528,7 @@ Device testing was conducted on a variety of phone models, including Samsung Gal
 ### Content
 
 * Custom error handlers and pages were inspired from Thomas-Tomo Domitrovic's [Woodland Whispers Retreat](https://github.com/Thomas-Tomo/woodland-whispers-retreat)
+* README.md was inspired by Thomas-Tomo Domitrovic's [Woodland Whispers Retreat](https://github.com/Thomas-Tomo/woodland-whispers-retreat)
 * CSS layout was inspired by Code Institute's Codestar blog
 * Some functionality was inspirired by Code Institute's Codestar blog (comments CRUD functionality)
 * All of the content is imaginary.
