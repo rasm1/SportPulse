@@ -148,8 +148,6 @@ body {
 .btn-edit-post {
     background-color: #188181;
     color: #fff;
-    margin-left: 46%;
-    margin-right: 46%;
 }
 
 .btn-signup:hover,
@@ -183,8 +181,7 @@ body {
 .btn-delete-post {
     color: #fff;
     background: #E84610;
-    margin-left: 46%;
-    margin-right: 46%;
+    padding-right: 0.5%;
 }
 
 .btn-like:hover,
@@ -192,6 +189,31 @@ body {
     color: #E84610;
     background: transparent;
     border: none;
+}
+
+.btn-posts{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    margin-right: 0.5%;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.post-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .faded {

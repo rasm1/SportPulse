@@ -22,3 +22,4 @@ for (let button of deleteButtonsPost) {
     deleteModalpost.show();
   });
 }
+

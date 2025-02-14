@@ -93,8 +93,8 @@ def post_delete(request, slug, post_id):
 
     if post.author == request.user:
         post.delete()
-        return redirect('home')
         messages.add_message(request, messages.SUCCESS, 'Post deleted!')
+        return redirect('home')
 
     else:
         return redirect("home")
