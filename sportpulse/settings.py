@@ -22,15 +22,16 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-uj6(#3t149%!!@5kf-0gb0j)e=6gz#kn5%p%(pvmyr$pb_o(20'
+
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = [
      '8000-rasm1-sportpulse-93blk26t82y.ws-eu117.gitpod.io',
+     '8000-rasm1-sportpulse-7ocu0jqc9r3.ws-eu117.gitpod.io',
      '.herokuapp.com',
-     'localhost'
+     'localhost',
      "https://ui.dev/amiresponsive?"
 ]
 
