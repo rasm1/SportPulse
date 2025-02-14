@@ -82,8 +82,13 @@ class Post(models.Model):
         help_text="How many times do you workout per week?",
         validators=[MinValueValidator(0), MaxValueValidator(7)])
 
+    def clean(self):
+        if self.workout_frequency < 0 or self.workout_frequency > 7:
+            raise ValidationError({'workout_frequency': "Please enter a value between 0 and 7."})
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+        self.full_clean()
         return super().save(*args, **kwargs)
 
     class Meta:
