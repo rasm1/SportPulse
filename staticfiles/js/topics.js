@@ -7,10 +7,6 @@ const workout_frequency = document.getElementById("id_workout_frequency");
 const equipment_available = document.getElementById("id_equipment_available");
 const nutrition_focus = document.getElementById("id_nutrition_focus");
 
-console.log("Form found:", form); 
-console.log("Workout frequency found:", workout_frequency);
-
-console.log("hello!")
 
 const TOPIC_SUBTOPICS_MAPPING = {
     0: [0, 1, 2, 3, 4, 5],

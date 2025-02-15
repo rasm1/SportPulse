@@ -55,10 +55,11 @@ def post_edit(request, slug, post_id):
     post = get_object_or_404(queryset, slug=slug)
 
     if post.author != request.user:
-            messages.add_message(request,
-                                 messages.ERROR,
-                                 'You can only edit your own posts!')
-            return redirect('home')
+        messages.add_message(
+            request,
+            messages.ERROR,
+            'You can only edit your own posts!')
+        return redirect('home')
 
     if request.method == "POST":
 
