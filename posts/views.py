@@ -54,12 +54,13 @@ def post_edit(request, slug, post_id):
     queryset = Post.objects.all()
     post = get_object_or_404(queryset, slug=slug)
 
-    if request.method == "POST":
-        if post.author != request.user:
+    if post.author != request.user:
             messages.add_message(request,
                                  messages.ERROR,
                                  'You can only edit your own posts!')
             return redirect('home')
+
+    if request.method == "POST":
 
         form = PostForm(data=request.POST, instance=post)
 

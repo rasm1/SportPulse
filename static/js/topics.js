@@ -1,3 +1,4 @@
+const form = document.querySelector("form");
 const topics = document.getElementById("id_topic");
 const sub_topics = document.getElementById("id_subtopics");
 const experience_level = document.getElementById("id_experience_level");
@@ -5,6 +6,8 @@ const goal = document.getElementById("id_goal");
 const workout_frequency = document.getElementById("id_workout_frequency");
 const equipment_available = document.getElementById("id_equipment_available");
 const nutrition_focus = document.getElementById("id_nutrition_focus");
+
+console.log("hello!")
 
 const TOPIC_SUBTOPICS_MAPPING = {
     0: [0, 1, 2, 3, 4, 5],

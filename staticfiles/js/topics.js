@@ -1,3 +1,4 @@
+const form = document.querySelector("form");
 const topics = document.getElementById("id_topic");
 const sub_topics = document.getElementById("id_subtopics");
 const experience_level = document.getElementById("id_experience_level");
@@ -5,6 +6,11 @@ const goal = document.getElementById("id_goal");
 const workout_frequency = document.getElementById("id_workout_frequency");
 const equipment_available = document.getElementById("id_equipment_available");
 const nutrition_focus = document.getElementById("id_nutrition_focus");
+
+console.log("Form found:", form); 
+console.log("Workout frequency found:", workout_frequency);
+
+console.log("hello!")
 
 const TOPIC_SUBTOPICS_MAPPING = {
     0: [0, 1, 2, 3, 4, 5],
@@ -14,13 +20,7 @@ const TOPIC_SUBTOPICS_MAPPING = {
     4: [],
 };
 
-/**
- * fetches selected topic and interprets choise as a numeric value
- * links topic to selected topic, if not selected = empty
- * fetches subtopic checkboxes
- * loops through all label elements, if labels has content subtopics and the subtopic selected is 1 / 3 it hides the label
- * loops through subtopiccheckboxes and displays them depending on what topic was selected
-*/
+
 function filterSubtopics() {
     const selectedTopic = parseInt(topics.value, 10);
     const allowedSubtopics = TOPIC_SUBTOPICS_MAPPING[selectedTopic] || [];
@@ -43,12 +43,6 @@ function filterSubtopics() {
     });
 }
 
-/**
- * fetches selected topic and interprets choise as a numeric value
- * loops through all label elements, if labels has content equipment available and the subtopic selected is 1 / 3 it hides the label
- * shows equipment available checkboxes if selectedtopic equals 2 or 3
- * if the selected topic equals 2 / 3, displays equipment avaiable label
-*/
 
 function toggleEquipmentCheckboxes() {
     const selectedTopic = parseInt(topics.value, 10);
@@ -84,6 +78,17 @@ function toggleNutritionFocus() {
         nutrition_focus.disabled = true;  
     }
 }
+
+
+form.addEventListener("submit", function (event) {
+    let value = parseInt(workout_frequency.value, 10);
+
+    if (isNaN(value) || value < 0 || value > 7) {
+        alert("Please enter a valid workout frequency between 0 and 7.");
+        workout_frequency.focus();
+        event.preventDefault(); 
+    }
+});
 
 
 
